@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+   
+    <body>
+            <h1>Let's see what you're made of</h1>
+
+            
+           <button onclick="publish('GREEN')">GREEN</button>
+           <button onclick="publish('RED')">RED</button>
+           <button onclick="publish('BOTH')">BOTH</button>
+           <button onclick="publish('OFF')">OFF</button>
+
+
+           <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.20.2.js"></script>
+
+            <script>
+
+              
+              
+   
+                pubnub = new PubNub({
+                publishKey : 'pub-c-2d8f55f6-daa7-467b-923b-6a1e6570c9fc',
+                subscribeKey : 'sub-c-1575c412-2116-11e8-a7d0-2e884fd949d2',
+               
+                                   });
+
+               
+                function publish(a){
+             
+
+                     var publishConfig = 
+                     {
+                        channel : "ch1",
+                        message : a
+                     }
+
+
+                     pubnub.publish(publishConfig, function(status, response) 
+                     {
+                     console.log(status, response);
+
+                     });
+
+                 
+                        };
+
+
+                  pubnub.addListener(
+                    {
+                        
+                         message: function(message) 
+                         {
+                            
+                                console.log("LED IS ON!", message);
+      
+                         }
+                         
+                    });  
+                
+
+
+ pubnub.subscribe({
+              channels: ['ch2'] 
+
+                     });
+
+
+
+
+
+
+
+        </script>
+
+        </body>
+        </html>
