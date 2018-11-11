@@ -52,7 +52,7 @@ def publish_callback(result, status):
  
 
 class MySubscribeCallback(SubscribeCallback):
-def status(self, pubnub, status):
+	def status(self, pubnub, status):
     pass
     # The status object returned is always related to subscribe but could contain
     # information about subscribe, heartbeat, or errors
