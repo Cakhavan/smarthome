@@ -118,7 +118,7 @@ def publish_callback(result, status):
 while True:
 
 
-	while door_sensor.is_held():
+	while door_sensor.is_held:
 
 		doorCount = doorCount + 1
 		door = "door has been opened: " + str(doorCount) + "times"
@@ -129,7 +129,7 @@ while True:
 	pubnub.publish().channel('ch1').message(door).async(publish_callback)
 
 
-	while light.is_held():
+	while light.is_held:
 		pubnub.publish().channel('ch1').message("lights are on").async(publish_callback)
 
 	pubnub.publish().channel('ch1').message("lights are off").async(publish_callback)
