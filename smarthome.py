@@ -46,6 +46,9 @@ doorCount = 0
 
 flag = 0
 
+lamp.on()
+sleep(3)
+lamp.off()
 
 
 class MySubscribeCallback(SubscribeCallback):
