@@ -30,7 +30,7 @@ pubnub = PubNub(pnconfig)
 
 #------------Sensor Declarations-------------#
 #lamp is connected to GPIO4 as an LED
-lamp = LED(4)
+lamp = LED(17)
 
 #door sensor is connected to GPIO3 as a Button
 door_sensor = Button(3)
