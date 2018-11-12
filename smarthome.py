@@ -124,9 +124,9 @@ def publish_callback(result, status):
 
 while True:
 
-	if(flag == 1)
+	if flag == 1:
 		lamp.on()
-	else
+	else:
 		lamp.off()
 
 	while door_sensor.is_held:
