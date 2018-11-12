@@ -44,13 +44,6 @@ doorCount = 0
 
 
 
-
-
-def publish_callback(result, status):
-    pass
-    # Handle PNPublishResult and PNStatus
- 
-
 class MySubscribeCallback(SubscribeCallback):
     def status(self, pubnub, status):
         pass
@@ -113,9 +106,12 @@ class MySubscribeCallback(SubscribeCallback):
 pubnub.add_listener(MySubscribeCallback())
 pubnub.subscribe().channels('ch1').execute()
 
-pubnub.publish().channel('ch2').message([DHT_Read]).async(publish_callback)
 
-
+def publish_callback(result, status):
+    pass
+    # Handle PNPublishResult and PNStatus
+ 
+ 
 
 while True:
 
