@@ -4,6 +4,8 @@
 import pubnub
 from pubnub.pnconfiguration import PNConfiguration
 from pubnub.pubnub import PubNub
+from pubnub.callbacks import SubscribeCallback
+from pubnub.enums import PNOperationType, PNStatusCategory
 
 
 from gpiozero import Button, LED
@@ -111,7 +113,7 @@ def publish_callback(result, status):
     pass
     # Handle PNPublishResult and PNStatus
  
- 
+
 
 while True:
 
