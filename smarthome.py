@@ -6,7 +6,7 @@ from pubnub.pnconfiguration import PNConfiguration
 from pubnub.pubnub import PubNub
 
 
-from gpiozero import Button
+from gpiozero import Button, LED
 from time import sleep
  
 #--------------------------------------------#
