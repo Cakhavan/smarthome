@@ -98,6 +98,7 @@ class MySubscribeCallback(SubscribeCallback):
         if message.message == 'ON':
         	lamp.on()
         	pubnub.publish().channel('ch1').message("lamp has been turned on").async(publish_callback)
+        	sleep(3)
         elif message.message == 'OFF':
         	lamp.off()
         	pubnub.publish().channel('ch1').message("lamp has been turned off").async(publish_callback)
@@ -134,6 +135,6 @@ while True:
 
 	pubnub.publish().channel('ch1').message("lights are off").async(publish_callback)
 
-	sleep(1)
+	sleep(3)
 
 

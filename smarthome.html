@@ -5,9 +5,9 @@
 		<h1>IoT Plant</h1>
 
 
-		<button type="button" onclick="publish('ON')">Auto Mode ON</button>
-		<button type="button" onclick="publish('OFF')">Auto Mode OFF</button>
-		<button type="button" onclick="publish('WATER')">Water Plant</button>
+		<button type="button" onclick="publish('ON')">Lamp ON</button>
+		<button type="button" onclick="publish('OFF')">Lamp OFF</button>
+
 		
 		<p id="sensorData">Temperature and Humidity Data</p>
 
@@ -20,8 +20,8 @@
 		
 		<script>
 		var pubnub = new PubNub({
-			publishKey : 'pub-c-cb2e18e3-a8b0-486a-bf82-2d9e9f670b7e',
-			subscribeKey : 'sub-c-a667485c-757f-11e8-9f59-fec9626a7085',
+			publishKey : 'pub-c-2d8f55f6-daa7-467b-923b-6a1e6570c9fc',
+			subscribeKey : 'sub-c-1575c412-2116-11e8-a7d0-2e884fd949d2',
 			});
 			function publish(a){
 				var publishConfig = 
