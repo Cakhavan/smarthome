@@ -99,12 +99,14 @@ class MySubscribeCallback(SubscribeCallback):
     def message(self, pubnub, message):
         if message.message == 'ON':
         	global flag
+        	global lamp
         	flag = 1
         	lamp.on()
         	pubnub.publish().channel('ch1').message("lamp has been turned on").async(publish_callback)
         	sleep(3)
         elif message.message == 'OFF':
         	global flag
+        	global lamp
         	flag = 0
         	lamp.off()
         	pubnub.publish().channel('ch1').message("lamp has been turned off").async(publish_callback)
