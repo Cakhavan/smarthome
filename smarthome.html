@@ -9,7 +9,7 @@
 		<button type="button" onclick="publish('OFF')">Lamp OFF</button>
 
 		
-		<p id="sensorData">Temperature and Humidity Data</p>
+		<p id="lights">Lights are on?</p>
 
 		<div id="chart"></div>
 
@@ -34,31 +34,7 @@
 				});
 				
 			}
-eon.chart({
-			  channels: ['eon-chart'],
-			  history: true,
-			  flow: true,
-			  pubnub: pubnub,
-			  generate: {
-			    bindto: '#chart',
-			    data: {
-			      labels: false
-			    }
-			  }
-			});
-// 		setInterval(function(){
-//   pubnub.publish({
-//     channel: 'eon-chart',
-//     message: {
-//       eon: {
-//         'Austin': Math.floor(Math.random() * 99),
-//         'New York': Math.floor(Math.random() * 99),
-//         'San Francisco': Math.floor(Math.random() * 99),
-//         'Portland': Math.floor(Math.random() * 99)
-//       }
-//     }
-//   });
-// }, 1000);
+
 		pubnub.addListener({
 		    message: function(m) {
 		        // handle message
@@ -67,7 +43,7 @@ eon.chart({
 		        var pubTT = m.timetoken; // Publish timetoken
 		        var msg = m.message; // The Payload
 		        var publisher = m.publisher; //The Publisher
-		        document.getElementById("sensorData").innerHTML = msg;
+		        document.getElementById("lights").innerHTML = msg;
 		        console.log(msg)
 		    },
 		    presence: function(p) {
