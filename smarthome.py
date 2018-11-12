@@ -44,6 +44,8 @@ light = Button(14)
 #door counter
 doorCount = 0
 
+flag = 0
+
 
 
 class MySubscribeCallback(SubscribeCallback):
@@ -96,10 +98,14 @@ class MySubscribeCallback(SubscribeCallback):
  
     def message(self, pubnub, message):
         if message.message == 'ON':
+        	global flag
+        	flag = 1
         	lamp.on()
         	pubnub.publish().channel('ch1').message("lamp has been turned on").async(publish_callback)
         	sleep(3)
         elif message.message == 'OFF':
+        	global flag
+        	flag = 0
         	lamp.off()
         	pubnub.publish().channel('ch1').message("lamp has been turned off").async(publish_callback)
 
@@ -118,6 +124,10 @@ def publish_callback(result, status):
 
 while True:
 
+	if(flag == 1)
+		lamp.on()
+	else
+		lamp.off()
 
 	while door_sensor.is_held:
 
