@@ -118,6 +118,7 @@ def publish_callback(result, status):
 
 while True:
 
+	#polling loop to check if the door sensor is on
 	while door_sensor.is_held:
 
 		doorCount = doorCount + 1
@@ -128,7 +129,7 @@ while True:
 	door = "door is closed"
 	pubnub.publish().channel('ch1').message(door).async(publish_callback)
 
-
+	#polling loop to check if the lights are on
 	while light.is_held:
 		pubnub.publish().channel('ch2').message("lights are on").async(publish_callback)
 
